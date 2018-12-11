@@ -10,6 +10,8 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+
+#rm(list = ls())
 ```
 
 ## This document
@@ -213,7 +215,7 @@ nyc_data <- jsonlite::fromJSON("https://data.cityofnewyork.us/resource/q3m4-ttp3
 
 Package called simply [maps](https://cran.r-project.org/web/packages/maps/maps.pdf)
 ```{r maps}
-#install.packages("maps","mapdata")
+#install.packages(c("maps","mapdata", "mapproj"))
 
 library(maps)
 library(mapdata)    # Contains the hi-resolution points that mark out the countries.
@@ -243,6 +245,8 @@ data(county.fips)
 ```
 
 [Leaflet](https://rstudio.github.io/leaflet/) is one of the most popular open-source JavaScript libraries for interactive maps.
+
+[Load own spatial data](https://nceas.github.io/oss-lessons/spatial-data-gis-law/3-mon-intro-gis-in-r.html)
 
 Finnish data and boundaries from https://github.com/rOpenGov/gisfin and tutorial. OBS! Some of the functions and datasets are no longer valid /available. 
 
@@ -316,6 +320,7 @@ library("devtools")
 library(gisfin)
 # Get a specific map
 #sp.mml <- get_mml(map.id="Yleiskartta-4500", data.id="HallintoAlue")
+#map <- get_municipality_map(data.source = "MML")
 
 ```
 
@@ -323,6 +328,7 @@ library(gisfin)
 Let's download some THL data to visualise on Finnish map
 ```{r sotka, message=FALSE, warning=FALSE}
 ##sotkanet data
+library(sotkanet)
 healthindex <- GetDataSotkanet(indicators = 244, year = 2010, region.category = "KUNTA")
 
 # Let us rename the value field for clarity

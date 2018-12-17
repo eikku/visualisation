@@ -100,7 +100,7 @@ datasets::Titanic
 
 
 Or directly from open sources with R package wrappers
-```{r}
+```{r message=FALSE, warning=FALSE,eval=FALSE}
 # List all available indicators from THL Sotkanet
 library(sotkanet) 
 sotkanet.indicators <- SotkanetIndicators(type = "table")
@@ -108,7 +108,7 @@ sotkanet.indicators <- SotkanetIndicators(type = "table")
 ```
 
 Or from Tilastokeskus with [pxweb package](https://github.com/rOpenGov/pxweb). See tutorial [here](https://htmlpreview.github.io/?https://github.com/rOpenGov/pxweb/blob/test/vignettes/pxweb.html).
-```{r}
+```{r pxweb, eval=FALSE, warning=FALSE}
 library(pxweb) 
 
 # Fetching data from statfi (Statistics Finland)

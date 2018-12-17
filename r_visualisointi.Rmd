@@ -23,7 +23,7 @@ This is document to help start using R in best possible way, using some basic vi
 Resources: 
 
 * Huge praise goes to slideset from [William Chase](https://www.williamrchase.com/slides/intro_r_anthropology_2018) about best practices.
-* Also [Hadley Wickhams]{http://hadley.nz} packages are always so helpful!
+* Also [Hadley Wickhams](http://hadley.nz) packages are always so helpful!
 * Newest shiny think I found was [Esquisse](https://github.com/dreamRs/esquisse)
 * How to write [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) like this
 
@@ -92,7 +92,7 @@ summary(telco_data)
 ```
 
 
-One could also use data from datasets() #https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/00Index.html
+One could also use data from [datasets()](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/00Index.html)
 
 ```{r titanic}
 datasets::Titanic
@@ -104,7 +104,24 @@ Or directly from open sources with R package wrappers
 # List all available indicators from THL Sotkanet
 library(sotkanet) 
 sotkanet.indicators <- SotkanetIndicators(type = "table")
+
 ```
+
+Or from Tilastokeskus with [pxweb package](https://github.com/rOpenGov/pxweb). See tutorial [here](https://htmlpreview.github.io/?https://github.com/rOpenGov/pxweb/blob/test/vignettes/pxweb.html).
+```{r}
+library(pxweb) 
+
+# Fetching data from statfi (Statistics Finland)
+#--> opens selection on command line
+d <- interactive_pxweb("pxnet2.stat.fi")
+
+summary(d)
+
+```
+
+
+
+
 More about getting data with different methods https://www.datacamp.com/community/tutorials/r-data-import-tutorial
 
 ## Datamanipulation
